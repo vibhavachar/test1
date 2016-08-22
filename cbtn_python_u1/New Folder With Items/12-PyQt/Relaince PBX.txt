@@ -1,0 +1,115 @@
+
+root@noc-nagios1001:~# docker pull jmar71n/freepbx
+
+root@noc-nagios1001:~# docker exec -it 360b8f172474 /bin/bash
+
+docker run --net=host -d -t jmar71n/freepbx
+
+
+https://bitbucket.org/jmar71n/docker-freepbx/src/1454fb7aaf54b90d37530260a224e4a03d95f143/Dockerfile?fileviewer=file-view-default
+
+
+10.237.196.33  ( proxy ip)
+
+
+PBX Portal
+blrpbxvl01.corp.inmobi.com
+Super Admin
+Username
+admin
+Password
+iP98xV0!9
+
+WAN IP Pool : 10.16.81.56 / 30
+Customer Name	INMOBI TECHNOLOGY SERVICES PRIVATE LIMITED
+Customer IP	 10.16.81.57 (Server IP where PBX is installed) 
+Subnet Mask	 255.255.255.252
+Gateway IP	 10.16.81.58
+ 
+Vlan/port	 5060
+SBC IP	 	
+Pilot no.	 8038002000
+DID Range	 8038002000 to 8038002199
+bandwidth	 2 Mbps
+channel count	20
+
+root - ez68DG
+
++918038002000@10.237.196.33:123456:+918038002000@10.237.196.33/+918038002000
+
++918038002000:123456@10.237.196.33
++918038002000:123456@10.237.196.33:5060/+918038002000
++918038002000:123456@10.237.196.33:5060
+08038002000:123456@10.237.196.33
++9108038002000:123456@10.237.196.33/+9108038002000
+918038002000:123456@10.237.196.33/9108038002000
+918038002000@10.237.196.33
++918038002000:123456@bangalore.relianceims.in
++918038002000@bangalore.relianceims.in
++918038002000@10.237.196.33@bangalore.relianceims.in
+
+10.14.118.174  SIP server IP
+
+http://www.yeastar.com/FAQ/MyPBX_FAQ
+
+
+disallow=all
+allow=ulaw
+context=from-trunk
+dtmfmode=auto
+fromdomain=10.237.196.33
+fromuser=+918038002000
+host=10.237.196.33
+insecure=port,invite
+qualify=yes
+secret=123456
+type=peer
+username=+918038002000
+authname=+918038002000@10.237.196.33
+canreinvite=no
+
+disallow=all
+allow=ulaw
+context=from-trunk
+dtmfmode=auto
+fromdomain=bangalore.relianceims.in
+fromuser=+918038002000
+host=10.16.81.57
+insecure=port,invite
+qualify=yes
+username=+918038002000
+secret=123456
+type=peer
+canreinvite=no
+
+
+type=peer
+host=10.237.196.XX
+username=+9180XXXXXXXX@bangalore.relianceims.in
+fromuser=+9180XXXXXXXX
+fromdomain=bangalore.relianceims.in
+secret=123456
+insecure=port,invite
+qualify=yes
+context=from-mysip
+disallow=all
+allow=alaw
+
+Working Conf
+disallow=all
+allow=alaw
+context=from-mysip
+dtmfmode=auto
+fromdomain=bangalore.relianceims.in
+fromuser=+918038002000
+host=10.237.196.33
+insecure=port,invite
+qualify=yes
+secret=123456
+type=peer
+username=+918038002000@bangalore.relianceims.in
+canreinvite=no
++918038002000@bangalore.relianceims.in:123456:+918038002000@bangalore.relianceims.in@10.237.196.33/+918038002000
+Working Conf
+
+02230383984
